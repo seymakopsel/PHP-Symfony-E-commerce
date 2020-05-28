@@ -1,0 +1,28 @@
+<div id="carouselBlk">
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+
+            {% for rs in sliders %}
+
+            <div class="item">
+
+                <div class="container">
+                 <h4>  <p> YENİ ÜRÜNLER</p> </h4>
+
+
+                    <a href="{{ path('product_detail', {'id': rs.id}) }}"><img style="width:1000px;height:300px;" src="{{ asset('uploads') }}/images/{{ rs.image }}" alt="special offers"/></a>
+                    <div class="carousel-caption">
+                        <h4> {{ rs.title }}</h4>
+
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>

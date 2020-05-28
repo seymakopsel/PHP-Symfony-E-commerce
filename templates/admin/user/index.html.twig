@@ -1,0 +1,55 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %} Üye Listesi {% endblock %}
+
+{% block content  %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h4> Üye Listesi
+                <small> <a href=" {{ path('admin_user_new') }}" class="btn btn-outline-primary btn-rounded btn-fw"> Üye Ekleme </a> </small>
+                </h4>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <th>Adı Soyadı</th>
+                            <th>Email</th>
+                            <th>Durum</th>
+                            <th>Roller</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+
+                        {% for row in users %}
+                        <br>
+                        <tr>
+                            <td>{{ row.id }}</td>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.email }}</td>
+                            <td>{{ row.status }}</td>
+                            <td>{% for item in row.roles %}
+                            {{ item }}
+                            {% endfor %}
+                            </td>
+
+                            <td><a href="{{ path('admin_user_edit',{'id' :row.id}) }}" class ="btn btn-block btn-primary btn-xs"> Düzenle </a> </td>
+                            <td><a href="{{ path('admin_user_delete',{'id' :row.id}) }}" onclick="return confirm('Silinecek emin misin?'); " class ="btn btn-block btn-danger btn-xs"> Sil </a> </td>
+
+                        </tr>
+
+                        {% endfor %}
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

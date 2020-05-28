@@ -1,0 +1,68 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %} Üye Ekleme{% endblock %}
+
+{% block content  %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title"> Üye Ekleme </h1>
+
+
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Yeni  Üye Ekleme</h3>
+
+            <form class="forms-sample" method="post">
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Adı Soyadı</label>
+                    <div class="col-sm-5">
+                        <input type="text" name="user[name]"   class="form-control" id="name" placeholder="Adı Soyadı">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-5">
+                        <input type="email" name="user[email]"  class="form-control" id="Email" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                    <div class="col-sm-5">
+                        <input type="password" name="user[password]" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                    </div>0
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Türü</label>
+                    <div class="col-sm-5">
+                       <select  name="user[type]"class="form control">
+                           <option> Admin </option>
+                           <option> Üye </option>
+                           <option> Muhasebeci </option>
+                           <option> Kargocu</option>
+                       </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Aktif Durumu</label>
+                    <div class="col-sm-5">
+                        <select name="user[status]" class="form control">
+                            <option> True </option>
+                            <option> False</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default mr-2">CANCEL</button>
+                <button type="submit" class="btn btn-success mr-2">KAYDET</button>
+
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}

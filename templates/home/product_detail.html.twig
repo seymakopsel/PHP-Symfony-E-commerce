@@ -1,0 +1,68 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title  %} {{ data[0].title }}  {% endblock %}
+{% block keywords %} {{ data[0].keywords }}  {% endblock %}
+{% block description %} {{ data[0].description }}  {% endblock %}
+{% block sidebar %} {{  include ('home/_sidebar.html.twig') }} {% endblock %}
+{% block content %}
+
+
+
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Home</a> <span class="divider">/</span></li>
+        <li><a href="#">Products</a> <span class="divider">/</span></li>
+        <li class="active">Preview</li>
+    </ul>
+
+    <div class="well well-small">
+        <div class="row-fluid">
+            <div class="span5">
+
+            <div id="myCarousel" class="carousel slide cntr">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <a href="#"> <img style="..." src="{{ asset('uploads') }}/images/{{ data[0].image }}" alt=""></a>
+                    </div>
+                    {% for rs in images %}
+                    <div class="item">
+                        <a href="#"> <img style="..." src="{{ asset('uploads') }}/images/{{ rs.image }}" alt=""></a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>
+
+
+
+        <div class="span6">
+            <h3>{{ data[0].title }}</h3>
+            <hr class="soft">
+
+            <form name="shopcart" class="form-horizontal qtyFrm" action="{{ path('shopcart_new') }}" method="post">
+                <div class="control-group">
+                    <label class="control-label"><span>Fiyatı: {{ data[0].sales }} TL </span></label>
+                    <br>
+                    <label class="control-label"><span>  Alacağınız Adet:</span></label>
+                      <input type="number" name="shopcart[quantity]" class="span6" placeholder="Adet" max="{{ data[0].amount }}">
+                        <input type="hidden" name="shopcart[productid]" value="{{ data[0].id }}" >
+
+                    </div>
+
+
+                    <h4>{{ data[0].amount }} Adet stokta var.</h4>
+                    <p>{{ data[0].description }}</p>
+
+
+                <input type="hidden" name="token" value="{{csrf_token('add-item')}}">
+                <button type="submit"  name="productid"   class="btn btn-large btn-primary pull-right"> Sepete Ekle <i class=" icon-shopping-cart"></i></button>
+
+
+            </form>
+        </div>
+</div>
+</div>
+    </div>
+{% endblock %}
+

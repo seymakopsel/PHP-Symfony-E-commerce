@@ -1,0 +1,35 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title  %} {{ data[0].title }}  {% endblock %}
+{% block keywords %} {{ data[0].keywords }}  {% endblock %}
+{% block description %} {{ data[0].description }}  {% endblock %}
+{% block sidebar %} {{  include ('home/_sidebar.html.twig') }} {% endblock %}
+{% block content %}
+
+
+     <div class="row">
+       <h2 class="title text-center">   &nbsp&nbsp&nbsp {{ data[0].title }}</h2>
+    <ul class="thumbnails">
+
+        {% for rs in products %}
+
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="{{ path('product_detail',{'id':rs.id} ) }}" class="product_link"> <img src="{{ asset('uploads') }}/images/{{ rs.image }}" alt=""></a>
+                <div class="caption">
+
+                    <h2>{{ rs.sales }} TL</h2>
+                    <p>
+                       {{ rs.title }}
+                    </p>
+
+                        <a class="btn" href="#"></a>
+
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+
+    </ul>
+     </div>
+{% endblock %}

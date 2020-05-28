@@ -1,0 +1,43 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block content  %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h4> Edit Product
+
+
+
+                </h4>
+
+
+
+                <div class="table">
+                    {{ include('admin/messages.html.twig') }}
+
+                    {{ include('admin/product/_form.html.twig', {'button_label': 'Update'}) }}
+
+                    <a href="{{ path('admin_product_index') }}">listeye geri dön.</a>
+
+                    {{ include('admin/product/_delete_form.html.twig') }}
+
+                    <script>
+                        ClassicEditor
+                            .create( document.querySelector( '#detail' ) )
+                            .catch( error => {
+                                console.error( error );
+                            } );
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+

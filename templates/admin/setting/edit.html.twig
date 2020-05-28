@@ -1,0 +1,44 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Setting{% endblock %}
+
+{% block content  %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h2> Edit Setting
+
+
+
+                </h2>
+
+
+
+                <div class="table">
+
+                    {{ include('admin/messages.html.twig') }}
+
+                    {{ include('admin/setting/_form.html.twig', {'button_label': 'Update'}) }}
+
+                    <a href="{{ path('admin_setting_index') }}">listeye geri dön.</a>
+
+                    {{ include('admin/setting/_delete_form.html.twig') }}
+
+                    <script>
+                        ClassicEditor
+                            .create( document.querySelector( '#detail' ) )
+                            .catch( error => {
+                                console.error( error );
+                            } );
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+

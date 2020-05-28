@@ -1,0 +1,64 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %} Sipariş Listesi {% endblock %}
+
+{% block content  %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h4> Sipariş Listesi
+
+
+
+                </h4>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+                </ol>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Id</th>
+                <th>Userid</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Note</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.userid }}</td>
+                <td>{{ order.name }}</td>
+                <td>{{ order.amount }} TL</td>
+                <td>{{ order.city }}</td>
+                <td>{{ order.phone }}</td>
+                <td>{{ order.note }}</td>
+                <td>{{ order.status }}</td>
+                <td>
+                    <a href="javascript:openWin('{{ path('admin_orders_show', {'id': order.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,scrollBars=no,resizable=no,width=700,height=600');">
+                        Göster</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

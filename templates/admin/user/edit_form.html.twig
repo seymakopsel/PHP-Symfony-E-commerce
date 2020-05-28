@@ -1,0 +1,70 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %} Üye Düzenleme {% endblock %}
+
+{% block content  %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Üye Düzenleme</h1>
+
+
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Düzenleme Formu</h3>
+
+            <form class="forms-sample" method="post">
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Adı Soyadı</label>
+                    <div class="col-sm-5">
+                        <input type="text" name="users[name]" value="{{ user.name }}" class="form-control" id="exampleInputEmail2" placeholder="Adı Soyadı">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-5">
+                        <input type="email" name="users[email]" value="{{ user.email }}" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
+                    <div class="col-sm-5">
+                        <input type="password" name="users[password]" value="{{ user.password}}" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Türü</label>
+                    <div class="col-sm-5">
+                       <select  name="users[type]"class="form control">
+                          <option> {{ user.type }} </option>
+                           <option> Admin </option>
+                           <option> Üye </option>
+                           <option> Muhasebeci </option>
+                           <option> Kargocu</option>
+                       </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Aktif Durumu</label>
+                    <div class="col-sm-5">
+                        <select name="users[status]" class="form control">
+                            <option>{{ user.status }}</option>
+                            <option> True </option>
+                            <option> False</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-default mr-2">CANSEL</button>
+                <button type="submit" class="btn btn-success mr-2">KAYDET</button>
+
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}

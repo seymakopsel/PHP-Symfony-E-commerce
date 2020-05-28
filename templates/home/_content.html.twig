@@ -1,0 +1,147 @@
+<div class="span9">
+    <div class="well well-small">
+        <h4>Kampanyalı Ürünler
+            <small class="pull-right"></small>
+        </h4>
+        <div class="row-fluid">
+            <div id="featured" class="">
+                <div class="carousel-inner">
+                    {% for rs in sliders %}
+                        <div class="item active">
+                            <ul class="thumbnails">
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <i class="tag"></i>
+                                        <a href="{{ path('product_detail',{'id': rs.id}) }}"><img src="uploads/images/şapka.jpg" alt=""></a>
+                                        <div class="caption">
+                                            <h5>Bere</h5>
+                                            <h4><a class="btn"  href="#"> Detaylı Gör</a> <span class="pull-right">300 TL</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <i class="tag"></i>
+                                        <a href="{{ path('product_detail',{'id': rs.id}) }}"><img src="uploads/images/şap3.jpg" alt=""></a>
+                                        <div class="caption">
+                                            <h5>Siyah Şapka</h5>
+                                            <h4><a class="btn" href="#"></a> <span class="pull-right">150 TL</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <i class="tag"></i>
+                                        <a href="{{ path('product_detail',{'id': rs.id}) }}"><img src="uploads/images/bel_cantasi_15.jpg" alt=""></a>
+                                        <div class="caption">
+                                            <h5>Spor Çanta</h5>
+                                            <h4><a class="btn" href="#"></a> <span class="pull-right">100 TL</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <i class="tag"></i>
+                                        <a href="{{ path('product_detail',{'id': rs.id}) }}"><img src="uploads/images/şal.jpg" alt=""></a>
+                                        <div class="caption">
+                                            <h5>Yün Şal</h5>
+                                            <h4><a class="btn" href="#"></a> <span class="pull-right">200 TL</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <h4>Son Eklenenler </h4>
+    <ul class="thumbnails">
+
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="#"><img src="uploads/images/şap3.jpg" alt=""/></a>
+                <div class="caption">
+                    <h5>Şapka</h5>
+
+                    <h4><a class="btn" href=#></a>Detaylı Gör <span class="pull-right">250 TL</span>
+                    </h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="#"><img src="uploads/images/şapka.jpg" alt=""/></a>
+                <div class="caption">
+                    <h5>Şapka</h5>
+
+                    <h4><a class="btn" href="#"></a> <span class="pull-right">250 TL</span>
+                    </h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="#"><img src="uploads/images/mom.jpg" alt=""/></a>
+                <div class="caption">
+                    <h5>Mom Pantalon</h5>
+
+                    <h4><a class="btn" href="#"></a> <span class="pull-right">250 TL</span>
+                    </h4>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="thumbnails">
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="#"><img src="uploads/images/mini2.jpg" alt=""/></a>
+                <div class="caption">
+                    <h5>Mini Elbise</h5>
+
+                    <h4><a class="btn" href="#"></a> <span class="pull-right">350 TL</span>
+                    </h4>
+                </div>
+            </div>
+        </li>
+
+
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="#"><img src="uploads/images/şal5.jpg" alt=""/></a>
+                <div class="caption">
+                    <h5>Şal</h5>
+
+                    <h4><a class="btn" href="#"></a> <span class="pull-right">250 TL</span>
+                    </h4>
+                </div>
+            </div>
+        </li>
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="#"><img src="uploads/images/kot3.jpg" alt=""/></a>
+                <div class="caption">
+                    <h5>Kot Pantalon</h5>
+
+
+                    <h4><a class="btn" href="#"></a> <span class="pull-right">300 TL</span>
+                    </h4>
+                </div>
+            </div>
+        </li>
+
+
+    </ul>
+
+</div>
+</div>
+</div>
+</div>

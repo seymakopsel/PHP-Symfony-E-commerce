@@ -1,0 +1,58 @@
+
+<form class="forms-sample" method="post">
+    <div class="form-group row">
+        <label  class="col-sm-3 col-form-label">Üst Kategori</label>
+        <div class="col-sm-5">
+            <select name="category[parentid]" class="form control">
+                {%  if category.parentid!=0 %}
+                <option value="{{ category.parentid }}"> {{ catname.title }} </option>
+                {% else %}
+                <option value="0"> Ana Kategori </option>
+                {% endif %}
+
+
+                <option value="0"> Ana Kategori </option>
+                {% for cat in catlist %}
+                <option value="{{ cat.id }}"> {{ cat.title }} </option>
+                {% endfor %}
+
+
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label  class="col-sm-3 col-form-label">Başlık</label>
+        <div class="col-sm-5">
+            <input type="text" name="category[title]" value="{{ category.title }}" class="form-control" placeholder="Başlık">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label  class="col-sm-3 col-form-label">Anahtar Kelime</label>
+        <div class="col-sm-5">
+            <input type="text" name="category[keywords]" value="{{ category.keywords}}" class="form-control"  placeholder="Anahtar kelime">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label  class="col-sm-3 col-form-label">Açıklama</label>
+        <div class="col-sm-5">
+            <input type="text" name="category[description]" value="{{ category.description}}" class="form-control"  placeholder="Açıklama">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label  class="col-sm-3 col-form-label">Aktif Durumu</label>
+        <div class="col-sm-5">
+            <select name="category[status]" class="form control">
+                <option>{{ category.status }}</option>
+                <option> True </option>
+                <option selected> False</option>
+
+            </select>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-default mr-2">İPTAL</button>
+    <button type="submit" class="btn btn-success mr-2">KAYDET</button>
+
+</form>

@@ -1,0 +1,86 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %} Product Listesi {% endblock %}
+
+{% block content  %}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="card">
+            <div class="card-body">
+                <h4> Product Listesi
+
+
+                    <small> <a href=" {{ path('admin_product_new') }}" class="btn btn-info btn-fw"> Product Ekleme </a> </small>
+                </h4>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Mark</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Sales</th>
+                            <th>Min</th>
+                            <th>Image</th>
+                            <th>Gallery</th>
+                            <th>Category_id</th>
+                            <th>Status</th>
+                            <th>Göster</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td>{{ product.id }}</td>
+                                <td>{{ product.title }}</td>
+                                <td>{{ product.mark }}</td>
+                                <td>{{ product.amount }}</td>
+                                <td>{{ product.price }}</td>
+                                <td>{{ product.sales }}</td>
+                                <td>{{ product.min }}</td>
+
+                                <td>
+                                    <a href ="javascript:openWin('{{ path('admin_product_iedit', {'id': product.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,scrollBars=no,width=600,height=500');">
+
+                                    {% if product.image ==null %}
+                                       <img src=" {{ url('admin') }}/img/image.png" height="32">
+                                    {% else %}
+                                        <img src="{{ asset ('uploads') }}/images/{{ product.image }}" height="50">
+                                    {% endif %}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href ="javascript:openWin('{{ path('admin_image_new', {'pid': product.id}) }}','','toolbar=no,location=no,directories=0,status=no,top=100,left=200,menuBar=no,scrollBars=no,width=1000,height=800');">
+                                        <img src=" {{ url('admin') }}/img/gallery.jpg" height="32">
+                                    </a>
+                                </td>
+                                <td>{{ product.categoryId }}</td>
+                                <td>{{ product.status }}</td>
+                                <td>
+                                    <a href="{{ path('admin_product_show', {'id': product.id}) }}" class ="btn btn-block btn-info btn-xs">Göster </a>
+                                </td> <td>
+                                    <a href="{{ path('admin_product_edit', {'id': product.id}) }}" class ="btn btn-block btn-info btn-xs">Düzenle </a>
+                                </td><td>{{ include('admin/product/_delete_form.html.twig') }} </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="16">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <a href="{{ path('admin_product_new') }}">Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
